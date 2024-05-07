@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { MeetingMinutesService } from '../services/meeting-minutes.service';
 @Component({
   selector: 'app-minutes-meeting-output',
   templateUrl: './minutes-meeting-output.component.html',
@@ -7,11 +6,8 @@ import { MeetingMinutesService } from '../services/meeting-minutes.service';
 })
 export class MinutesMeetingOutputComponent implements OnInit {
 
-  constructor(private meetingMinutesService: MeetingMinutesService) { }
+  constructor() { }
 
   ngOnInit(): void {
-  }
-  downloadPDF() {
-    this.meetingMinutesService.downloadPDF()
   }
 }
