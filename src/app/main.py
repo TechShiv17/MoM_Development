@@ -4,6 +4,7 @@ from src.utils.transcriber import AudioTranscriber
 from src.utils.video_downloader import VideoDownloader
 from src.utils.pre_process_data import DataPreProcessing
 from src.utils.summarizer import Summarization
+from src.utils.pdf_generator import PDFGenerator
 
 
 class VideoToAudioTranscriber:
@@ -36,4 +37,5 @@ class VideoToAudioTranscriber:
 
     # To perform summarization of transcribed text
     summary = Summarization.summarization_using_mistral(preprocessedData)
-    print(summary)
+
+    PDFGenerator.generate_transcript_pdf(summary, f"{input_output_path}/MoM.pdf")
