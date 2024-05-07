@@ -1,5 +1,4 @@
 import re
-
 import nltk
 
 nltk.download('punkt')
@@ -28,35 +27,15 @@ acronym_pattern = r'([A-Z]\.)+'  # Match acronyms
 contraction_pattern = r'\b\w+\'(?:\w+)?\b'  # Match contractions
 
 
-def read_file(file_path):
-    file = open(file_path, 'r')
-    read_content = file.read()
-    file.close()
-    return read_content
+class DataPreProcessing:
 
-
-def write_into_file(file_path, content_to_write):
-    file = open(file_path, 'w')
-    file.write(content_to_write)
-    file.close()
-
-
-file_text = read_file("transcript.txt")
-
-
-def remove_pattern(text, pattern):
-    return re.sub(pattern, '', text)
-
-
-# add different patterns according to your need for filtering
-def clean(text):
-    text = remove_pattern(text, comma_pattern)
-    text = remove_pattern(text, quotes_pattern)
-    text = remove_pattern(text, single_quote_pattern)
-    text = remove_pattern(text, square_bracket_pattern)
-    text = remove_pattern(text, new_line)
-    return text
-
-
-cleaned_text = clean(file_text)
-write_into_file("file1.txt", cleaned_text)
+    @staticmethod
+    # add different patterns according to your need for filtering
+    def clean(text):
+        text = re.sub(comma_pattern, '', text)
+        text = re.sub(quotes_pattern, '', text)
+        text = re.sub(single_quote_pattern, '', text)
+        text = re.sub(square_bracket_pattern, '', text)
+        text = re.sub(new_line, '', text)
+        text = text.lower()
+        return text
