@@ -11,5 +11,6 @@ class AudioTranscriber:
         transcriptText = ""
         for segment in segments:
             transcriptText += segment.text
-        print(transcriptText)
+
+        return transcriptText
 

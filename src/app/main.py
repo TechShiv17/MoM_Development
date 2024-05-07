@@ -9,10 +9,13 @@ from src.utils.summarizer import Summarization
 class VideoToAudioTranscriber:
     url = "https://www.youtube.com/watch?v=sRvLj4D5TuQ"
     
-    input_output_path = "../static/sample_rec/"
+    input_output_path = "../static/"
     video_file_name = "demo_video"
     video_ext = ".mp4"
     audio_file_name = "demo_audio.mp3"
+
+    if not os.path.isdir(input_output_path):
+        os.mkdir(input_output_path)
 
     # To download video from YouTube
     VideoDownloader.download_video_from_url(url, f"{input_output_path}{video_file_name}")
@@ -29,7 +32,7 @@ class VideoToAudioTranscriber:
     os.remove(f"{input_output_path}{audio_file_name}")
 
     # To perform data preprocessing on transcribed text
-    preprocessedData = DataPreProcessing.clean(transcription)
+    preprocessedData = DataPreProcessing.clean(f"""{transcription}""")
 
     # To perform summarization of transcribed text
     summary = Summarization.summarization_using_mistral(preprocessedData)
