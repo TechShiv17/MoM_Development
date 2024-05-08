@@ -10,7 +10,7 @@ CORS(app)
 def get_recording_link():
     recording_link = request.args.get('link')
     if recording_link is not None:
-        MoMGenerator.ProcessVideo(recording_link)
+        MoMGenerator.processVideo(recording_link)
         response = jsonify({'message': 'Success', 'status_code': 200})
         return response
     else:
