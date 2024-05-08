@@ -11,9 +11,11 @@ def get_recording_link():
     recording_link = request.args.get('link')
     if recording_link is not None:
         MoMGenerator.ProcessVideo(recording_link)
+        response = jsonify({'message': 'Success', 'status_code': 200})
+        return response
     else:
-        response = jsonify({'error': 'Unauthorized: Missing or invalid token'})
-        response.status_code = 400
+        response = jsonify({'message': 'Unauthorized: Missing or invalid token', 'status_code': 400})
+        response.status_code = 400;
         return response
 
 
