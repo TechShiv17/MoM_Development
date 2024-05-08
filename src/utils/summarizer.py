@@ -11,6 +11,9 @@ class Summarization:
             f"MoM Title, MoM created date, Meeting organizer name, Attendees list, Topic of discussion/meeting, Agenda, "
             f"Notes, Tasks, and Additional Info. Ensure to include relevant points. "
             f"If an attendee is not found in the transcription, mark it as NA: {transcription}")
+        try:
+            # Replace with your desired prompt
+            prompt = f"Summarize the following text: {transcription}"
 
         # Create a client instance
         client = Client()
