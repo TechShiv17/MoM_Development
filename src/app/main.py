@@ -51,9 +51,9 @@ class MoMGenerator:
             # Define email configuration
             subject = "MoM for your Meeting: Demo Meeting"
             body = "This is the automated Minutes of Meeting (MoM) generated from your meeting"
-            sender_email = "<sender_email_id>"
-            receiver_emails = ["<receiver_email_1, <receiver_email_2>"]
-            password = "<user_generated_token>"
+            sender_email = "shivammathur1798@gmail.com"
+            receiver_emails = ["shivammathur1998@gmail.com"]
+            password = "ozqvnhpvejwotelz"
             filename = f"{pdf_path}{pdf_name}"
 
             # Create message
