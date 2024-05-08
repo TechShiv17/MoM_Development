@@ -21,7 +21,6 @@ class VideoDownloader:
     @staticmethod
     def download_video_from_url(url, output_path):
         try:
-            logging.info(f"\nDownloading video from URL: {url}")
             # Get the YouTube video object
             yt = YouTube(url)
 
@@ -34,7 +33,5 @@ class VideoDownloader:
 
             # Download the video stream with audio included, using the full filename
             video_stream.download(filename=full_filename)
-            logging.info(f"\nDownloaded video with audio to {output_path} directory")
-
         except Exception as e:
             logging.error(f"\nAn error occurred while downloading the video: {str(e)}")

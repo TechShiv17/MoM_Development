@@ -20,7 +20,6 @@ class SMTPEmailSender:
               Returns:
                   MIMEMultipart: Email message object.
               """
-        logging.info(f"\nCreating Email Message from {sender_email}")
         try:
             message = MIMEMultipart()
             message["From"] = sender_email
@@ -42,7 +41,6 @@ class SMTPEmailSender:
                Returns:
                    MIMEMultipart: Email message object with attached file.
                """
-        logging.info("\nAttaching the File to the Email")
         try:
             with open(filename, "rb") as attachment:
                 part = MIMEBase("application", "octet-stream")
@@ -67,7 +65,6 @@ class SMTPEmailSender:
                    password (str): Sender's email password.
                    message (MIMEMultipart): Email message object.
                """
-        logging.info(f"\nSending Email to {receiver_emails}")
         try:
             context = ssl.create_default_context()
             with smtplib.SMTP_SSL("smtp.gmail.com", 465, context=context) as server:

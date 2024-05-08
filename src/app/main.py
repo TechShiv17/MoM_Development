@@ -10,7 +10,7 @@ from src.utils.email_sender import SMTPEmailSender
 
 
 class MoMGenerator:
-    logging.basicConfig(level=logging.DEBUG)
+    logging.basicConfig(level=logging.ERROR)
 
     @staticmethod
     def processVideo(url):

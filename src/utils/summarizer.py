@@ -6,7 +6,6 @@ class Summarization:
 
     @staticmethod
     def summarization_using_mistral(transcription):
-        logging.info("\nSummarizing the text using Mistral....")
         try:
             # Replace with your desired prompt
             prompt = f"Summarize the following text: {transcription}"

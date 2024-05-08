@@ -14,7 +14,6 @@ class PDFGenerator:
                    :param output_pdf_path:
                    :param transcript:
                """
-        logging.info("\nGenerating the PDF for MOM")
         try:
             doc = SimpleDocTemplate(output_pdf_path, pagesize=letter)
             styles = getSampleStyleSheet()
