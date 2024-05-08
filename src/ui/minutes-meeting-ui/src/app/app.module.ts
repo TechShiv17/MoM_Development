@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { MinutesMeetingOutputComponent } from './minutes-meeting-output/minutes-meeting-output.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MeetingRecordingComponent } from './meeting-recording/meeting-recording.component';
+import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { MeetingRecordingComponent } from './meeting-recording/meeting-recording
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    HttpClientModule
+    HttpClientModule,
+    SweetAlert2Module
   ],
   providers: [],
   bootstrap: [AppComponent]
