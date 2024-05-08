@@ -10,7 +10,7 @@ CORS(app)
 def get_recording_link():
     recording_link = request.args.get('link')
     if recording_link is not None:
-        MoMGenerator.ProcessVideo(recording_link)
+        MoMGenerator.processVideo(recording_link)
     else:
         response = jsonify({'error': 'Unauthorized: Missing or invalid token'})
         response.status_code = 400
