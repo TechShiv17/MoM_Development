@@ -1,6 +1,6 @@
 from pytube import YouTube
 import os
-from moviepy.editor import VideoFileClip, AudioClip
+import logging
 
 
 class VideoDownloader:
@@ -20,16 +20,21 @@ class VideoDownloader:
 
     @staticmethod
     def download_video_from_url(url, output_path):
-        # Get the YouTube video object
-        yt = YouTube(url)
+        try:
+            logging.info(f"\nDownloading video from URL: {url}")
+            # Get the YouTube video object
+            yt = YouTube(url)
 
-        # Get the best available progressive MP4 stream (adjust as needed)
-        video_stream = yt.streams.filter(progressive=True, file_extension="mp4").order_by('resolution').desc().last()
+            # Get the best available progressive MP4 stream (adjust as needed)
+            video_stream = yt.streams.filter(progressive=True, file_extension="mp4").order_by(
+                'resolution').desc().last()
 
-        # Create the full output filename with extension
-        full_filename = f"{output_path}.{video_stream.subtype}"  # Use stream subtype for extension
+            # Create the full output filename with extension
+            full_filename = f"{output_path}.{video_stream.subtype}"  # Use stream subtype for extension
 
-        # Download the video stream with audio included, using the full filename
-        video_stream.download(filename=full_filename)
-        print(f"Downloaded video with audio to: {full_filename}")
+            # Download the video stream with audio included, using the full filename
+            video_stream.download(filename=full_filename)
+            logging.info(f"\nDownloaded video with audio to {output_path} directory")
 
+        except Exception as e:
+            logging.error(f"\nAn error occurred while downloading the video: {str(e)}")

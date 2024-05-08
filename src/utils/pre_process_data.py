@@ -1,5 +1,6 @@
 import re
 import nltk
+import logging
 
 nltk.download('punkt')
 
@@ -32,11 +33,15 @@ class DataPreProcessing:
     @staticmethod
     # add different patterns according to your need for filtering
     def clean(text):
-        text = re.sub(comma_pattern,'',text)
-        text = re.sub(quotes_pattern, '', text)
-        text = re.sub(single_quote_pattern, '', text)
-        text = re.sub(square_bracket_pattern, '', text)
-        text = re.sub(new_line, '', text)
-        text = text.lower()
-        return text
+        try:
+            logging.info("\nProcessing the Data Cleaning....")
+            text = re.sub(comma_pattern, '', text)
+            text = re.sub(quotes_pattern, '', text)
+            text = re.sub(single_quote_pattern, '', text)
+            text = re.sub(square_bracket_pattern, '', text)
+            text = re.sub(new_line, '', text)
+            text = text.lower()
+            return text
 
+        except Exception as e:
+            logging.error(f"\nAn error occurred during text cleaning: {e}")
